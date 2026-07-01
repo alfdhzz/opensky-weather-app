@@ -85,10 +85,10 @@ export default async function Home({ searchParams }: PageProps) {
 
         <FavoriteList />
 
-        {weatherData.error ? (
+        {weatherData.error || !weatherData.current ? (
           <div className="glass rounded-3xl p-12 text-center text-slate-700 dark:text-slate-200">
             <h2 className="text-2xl font-bold mb-2">Oops!</h2>
-            <p>{weatherData.error}</p>
+            <p>{weatherData.error || "Gagal memuat data cuaca."}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
